@@ -33,6 +33,12 @@ typedef struct list
 	struct list	*next;
 }			t_list;
 
+typedef struct env
+{
+	char		*content;
+	struct env	*next;
+}			t_env;
+
 // virtual
 void	virtual_stack(t_list **list);
 
@@ -41,7 +47,7 @@ void	ft_fork(char *nood, char **env);
 int		ft_strlen_1(char **ptr);
 void	putstr(char *str, int i);
 void	echo(char *cmd);
-void	classification_cmd(char **env, char *nood);
+void	classification_cmd(t_env *env, char *nood);
 void	ft_exec(char *cmd, char **env);
 char	*ft_strdup(char *s1);
 size_t	ft_strlen(char *s);
@@ -55,9 +61,10 @@ int		ft_strncmp(char *s1, char *s2, int n);
 char	*ft_strchr(char *s, int c);
 char	*ft_find_path(char **env);
 void	ft_find_pwd(void);
-void	get_env(char **env);
+t_env	*get_env(char **env);
 void	get_cd(char *cmd);
-void	export(char *cmd, char **env);
+void	export(char *cmd, t_env	*list_env);
 void	ft_putstr_fd(char *s, int fd);
+void	write_env(t_env *env);
 
 #endif

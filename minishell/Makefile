@@ -6,7 +6,7 @@
 #    By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/13 12:34:57 by souaouri          #+#    #+#              #
-#    Updated: 2024/05/17 01:27:00 by souaouri         ###   ########.fr        #
+#    Updated: 2024/05/18 00:27:21 by souaouri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ DIR				=	.object_files
 
 SRC_FILES		=	minishell.c
 BUILTS_FILES	=	cd.c			echo.c			pwd.c		\
-					env.c			export.c
+					env.c			env_utile.c		export.c
 UTILS_FILES		=	utils_1.c 		utils_2.c 		utils_3.c 	\
 					utils_4.c 		utils_5.c 		utils_6.c
 VUR_FILES		=	list.c

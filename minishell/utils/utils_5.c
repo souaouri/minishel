@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:35:27 by souaouri          #+#    #+#             */
-/*   Updated: 2024/05/17 00:35:28 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/05/18 00:41:31 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_fork(char *nood, char **env)
 		parent (nood, env);
 }
 
-void	classification_cmd(char **env, char *nood)
+void	classification_cmd(t_env *env, char *nood)
 {
 	char	*pwd;
 	char	**cmmd;
@@ -39,10 +39,13 @@ void	classification_cmd(char **env, char *nood)
 	}
 	else if (!ft_strncmp("pwd", nood, 3))
 		ft_find_pwd();
+	else if (!ft_strncmp("env", nood, 3))
+		write_env(env);
 	else if (!ft_strncmp("cd", nood, 2))
 		get_cd(nood);
 	else if (!ft_strncmp("export", nood, 6))
 		export(nood, env);
-	else
-		ft_fork(nood, env);
+	exit (0);
+	// else
+	// 	ft_fork(nood, env);
 }

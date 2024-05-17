@@ -1,13 +1,11 @@
 #include "../minishell.h"
 
-void	get_env(char **env)
+void	write_env(t_env *env)
 {
-	int	i;
-
-	i = 0;
-	while (env[i])
+	while(env)
 	{
-		ft_putstr_fd(env[i], 1);
-		i++;
+		ft_putstr_fd(env->content, 1);
+		ft_putstr_fd("\n", 1);
+		env = env->next;
 	}
 }
