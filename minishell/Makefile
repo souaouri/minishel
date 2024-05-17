@@ -6,7 +6,7 @@
 #    By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/13 12:34:57 by souaouri          #+#    #+#              #
-#    Updated: 2024/05/17 01:11:54 by souaouri         ###   ########.fr        #
+#    Updated: 2024/05/17 01:27:00 by souaouri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,10 @@ BUILTS_SRC		=	$(addprefix builtins/,$(BUILTS_FILES))
 UTILS_SRC		=	$(addprefix utils/,$(UTILS_FILES))
 VUR_SRC			=	$(addprefix virtual/,$(VUR_FILES))
 
-SRC_OBJ			=	$(SRC_SRC:.c=.o)
-BUILTS_OBJ		=	$(BUILTS_SRC:.c=.o)
-UTILS_OBJ		=	$(UTILS_SRC:.c=.o)
-VUR_OBJ			=	$(VUR_SRC:.c=.o)
+SRC_OBJ			=	$(addprefix $(DIR)/,$(SRC_SRC:.c=.o))
+BUILTS_OBJ		=	$(addprefix $(DIR)/,$(BUILTS_SRC:.c=.o))
+UTILS_OBJ		=	$(addprefix $(DIR)/,$(UTILS_SRC:.c=.o))
+VUR_OBJ			=	$(addprefix $(DIR)/,$(VUR_SRC:.c=.o))
 
 OBJ_FILES		=	$(SRC_OBJ)	$(BUILTS_OBJ)	$(UTILS_OBJ)	\
 					$(VUR_OBJ)
@@ -39,29 +39,35 @@ OBJ_FILES		=	$(SRC_OBJ)	$(BUILTS_OBJ)	$(UTILS_OBJ)	\
 all : $(NAME)
 
 $(NAME) : $(OBJ_FILES)
-	$(CC) -lreadline -o $@ $^
+	@$(CC) -lreadline -o $@ $^
+	@echo "✅ \033[1;32mCompilation Completed Successfully!\033[0;m"
 
 $(DIR)/src/%.o : src/%.c
-	@mkdir -p $@
+	@mkdir -p $(dir $@)
 	@$(CC) -c $< -o $@
+	@echo "\033[1;30mObject files generated Successfully! $@ \033[0;m"
 
 $(DIR)/builtins/%.o : builtins/%.c
-	@mkdir -p $@
+	@mkdir -p $(dir $@)
 	@$(CC) -c $< -o $@
+	@echo "\033[1;30mObject files generated Successfully! $@ \033[0;m"
 
 $(DIR)/utils/%.o : utils/%.c
-	@mkdir -p $@
+	@mkdir -p $(dir $@)
 	@$(CC) -c $< -o $@
+	@echo "\033[1;30mObject files generated Successfully! $@ \033[0;m"
 
 $(DIR)/virtual/%.o : virtual/%.c
-	@mkdir -p $@
+	@mkdir -p $(dir $@)
 	@$(CC) -c $< -o $@
+	@echo "\033[1;30mObject files generated Successfully! $@ \033[0;m"
 
 clean :
-	rm -rf $(DIR)
-	rm -f $(OBJ_FILES)
+	@rm -rf $(DIR)
+	@echo "\033[31mObject files has been removed Successfully!\033[0;m"
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "\033[31mExecutable file has been removed Successfully!\033[0;m"
 
 re : fclean all
