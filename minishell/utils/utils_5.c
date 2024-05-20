@@ -6,17 +6,18 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:35:27 by souaouri          #+#    #+#             */
-/*   Updated: 2024/05/18 00:41:31 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:58:26 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	ft_fork(char *nood, char **env)
+void	ft_fork(char *nood, t_env *list_env)
 {
-	
+	char	**env;
 	int	pid;
 
+	env = change_list_to_env(list_env);
 	pid = fork();
 	if (pid == -1)
 		perror("error");
@@ -45,7 +46,6 @@ void	classification_cmd(t_env *env, char *nood)
 		get_cd(nood);
 	else if (!ft_strncmp("export", nood, 6))
 		export(nood, env);
-	exit (0);
-	// else
-	// 	ft_fork(nood, env);
+	else
+		ft_fork(nood, env);
 }

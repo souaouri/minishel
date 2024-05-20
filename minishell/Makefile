@@ -6,17 +6,17 @@
 #    By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/13 12:34:57 by souaouri          #+#    #+#              #
-#    Updated: 2024/05/18 00:27:21 by souaouri         ###   ########.fr        #
+#    Updated: 2024/05/20 17:19:58 by souaouri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC 				=	cc -fsanitize=address -g
-CC				+=	-Wall -Wextra -Werror
+# CC				+=	-Wall -Wextra -Werror
 NAME 			=	minishell
 HEADER 			=	minishell.h
 DIR				=	.object_files
 
-SRC_FILES		=	minishell.c
+SRC_FILES		=	minishell.c		multiple_Command.c
 BUILTS_FILES	=	cd.c			echo.c			pwd.c		\
 					env.c			env_utile.c		export.c
 UTILS_FILES		=	utils_1.c 		utils_2.c 		utils_3.c 	\

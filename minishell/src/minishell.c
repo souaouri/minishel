@@ -6,17 +6,35 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:20:06 by souaouri          #+#    #+#             */
-/*   Updated: 2024/05/18 00:19:57 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:41:46 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
+
+int	 teste(char *cmd)
+{
+	char	**cmmd;
+	int		i;
+	int		pipe;
+
+	i = 0;
+	cmmd = ft_split(cmd, ' ');
+	while(cmmd[i])
+	{
+		if (ft_strncmp(cmmd[i], "|", 1))
+			pipe += 1;
+		i++;
+	}
+	return (pipe);
+}
 
 int	main(int argc, char **argv, char **env)
 {
 	char		*line;
 	t_list		*list;
 	t_env		*env_list;
+	int			i;
 
 	(void)argv;
 	(void)argc;
@@ -40,6 +58,8 @@ int	main(int argc, char **argv, char **env)
 		}
 		if (line && *line)
 			add_history(line);
+		printf ("pipe : %d\n", i);
+		i = teste(line);
 		env_list = get_env(env);
 		classification_cmd(env_list, line);
 	}
