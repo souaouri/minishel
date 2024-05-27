@@ -21,7 +21,7 @@
 
 typedef struct container
 {
-	char				*cmd;
+	char				**cmd;
 	int					infile;
 	int					outfile;
 	struct container	*next;
@@ -43,12 +43,12 @@ typedef struct env
 void	virtual_stack(t_list **list);
 
 // travl
-void	ft_fork(char *nood, char **env);
+void	ft_fork(char *nood, t_env *list_env);
 int		ft_strlen_1(char **ptr);
 void	putstr(char *str, int i);
 void	echo(char *cmd);
 void	classification_cmd(t_env *env, char *nood);
-void	ft_exec(char *cmd, char **env);
+void	ft_exec(char **cmd, char **env);
 char	*ft_strdup(char *s1);
 size_t	ft_strlen(char *s);
 void	*free_double_ptr(char	**ptr);
@@ -66,5 +66,10 @@ void	get_cd(char *cmd);
 void	export(char *cmd, t_env	*list_env);
 void	ft_putstr_fd(char *s, int fd);
 void	write_env(t_env *env);
+int		count_pipe(char *cmd);
+char	**change_list_to_env(t_env *list_env);
+int		ft_lstsize(t_env *lst);
+int		ft_lstsize_1(t_list *lst);
+void	multiple_cmd(char **env, t_list *list);
 
 #endif

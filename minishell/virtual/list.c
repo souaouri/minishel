@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:54:18 by souaouri          #+#    #+#             */
-/*   Updated: 2024/05/14 16:45:55 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/05/26 21:44:12 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,23 @@
 
 void	ft_initialisation(t_container	*nood)
 {
-	nood->cmd = "cat";
+	nood->cmd = ft_split("cat", ' ');
 	nood->infile = 0;
 	nood->outfile = 1;
 }
 
 void	ft_initialisation2(t_container	*nood)
 {
-	nood->cmd = "cat";
+	nood->cmd = ft_split("cat", ' ');
+	nood->infile = 0;
+	nood->outfile = 1;
 }
 
 void	ft_initialisation3(t_container	*nood)
 {
-	nood->cmd = "ls -l";
+	nood->cmd = ft_split("cat", ' ');
+	nood->infile = 0;
+	nood->outfile = 1;
 }
 
 t_list	*ft_lstnew(t_container content)

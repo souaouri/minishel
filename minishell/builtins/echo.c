@@ -38,6 +38,7 @@ void	echo(char *cmd)
 		{
 			char	*var;
 			var = getenv(cmmd[i] + 1);
+			printf ("====%s\n", cmmd[i]);
 			if (var)
 				ft_putstr_fd(var, 1);
 		}

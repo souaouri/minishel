@@ -75,30 +75,29 @@ char	*ft_get_path(char *cmd, char **env)
 	return (cmd);
 }
 
-void	ft_exec(char *cmd, char **env)
+void	ft_exec(char **cmd, char **env)
 {
 	int		i;
 	char	*path;
-	char	**cmmd;
+	//char	**cmmd;
 
 	i = 0;
-	if (!ft_strncmp(cmd, "\0", 1))
+	if (!ft_strncmp(cmd[0], "\0", 1))
 	{
 		exit (EXIT_FAILURE);
 	}
-	cmmd = ft_split(cmd, ' ');
-	cmd = cmmd[0];
-	ft_check(cmd, env);
-	path = ft_get_path(cmd, env);
-	if (execve(path, cmmd, env) == -1)
+	//cmmd = ft_split(cmd, ' ');
+	//cmd = cmmd[0];
+	ft_check(cmd[0], env);
+	path = ft_get_path(cmd[0], env);
+	if (execve(path, cmd, env) == -1)
 	{
-		dup2(1, 2);
-		ft_putstr_fd(cmd, 2);
+		ft_putstr_fd(cmd[0], 2);
 		ft_putstr_fd(": command not found\n", 2);
 		exit (EXIT_FAILURE);
 		free (path);
-		free_double_ptr(cmmd);
+		free_double_ptr(cmd);
 	}
 	free (path);
-	free_double_ptr(cmmd);
+	free_double_ptr(cmd);
 }

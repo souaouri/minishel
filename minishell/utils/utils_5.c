@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:35:27 by souaouri          #+#    #+#             */
-/*   Updated: 2024/05/20 17:58:26 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:08:22 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 void	ft_fork(char *nood, t_env *list_env)
 {
 	char	**env;
+	int	i;
 	int	pid;
 
+	i = 0;
 	env = change_list_to_env(list_env);
 	pid = fork();
 	if (pid == -1)
-		perror("error");
+		perror("error lalala");
 	else if (!pid)
 		child(nood, env);
 	else if (pid)
