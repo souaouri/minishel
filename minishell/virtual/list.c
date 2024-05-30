@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:54:18 by souaouri          #+#    #+#             */
-/*   Updated: 2024/05/26 21:44:12 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:03:31 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_initialisation(t_container	*nood)
 {
 	nood->cmd = ft_split("cat", ' ');
-	nood->infile = 0;
+	nood->infile = open ("Makefile", O_RDONLY , 0644);
 	nood->outfile = 1;
 }
 
@@ -23,14 +23,16 @@ void	ft_initialisation2(t_container	*nood)
 {
 	nood->cmd = ft_split("cat", ' ');
 	nood->infile = 0;
-	nood->outfile = 1;
+	nood->outfile = open ("fsf", O_CREAT | O_RDWR , 0644);;
 }
 
 void	ft_initialisation3(t_container	*nood)
 {
+	// int fd;
+	// fd = open ("test.tgjxt", O_CREAT | O_RDONLY | 0644);
 	nood->cmd = ft_split("cat", ' ');
-	nood->infile = 0;
-	nood->outfile = 1;
+	nood->infile = 0; //open ("Makefile", O_RDONLY , 0644);
+	nood->outfile = open ("tttt", O_CREAT | O_RDWR , 0644);
 }
 
 t_list	*ft_lstnew(t_container content)

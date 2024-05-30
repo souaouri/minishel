@@ -66,7 +66,6 @@ void	get_cd(char *cmd);
 void	export(char *cmd, t_env	*list_env);
 void	ft_putstr_fd(char *s, int fd);
 void	write_env(t_env *env);
-int		count_pipe(char *cmd);
 char	**change_list_to_env(t_env *list_env);
 int		ft_lstsize(t_env *lst);
 int		ft_lstsize_1(t_list *lst);
