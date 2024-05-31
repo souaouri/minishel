@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:54:18 by souaouri          #+#    #+#             */
-/*   Updated: 2024/05/31 01:50:42 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/05/31 01:58:07 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_initialisation(t_container	*nood)
 {
-	nood->cmd = ft_split("echo salam", ' ');
+	nood->cmd = ft_split("ls -a", ' ');
 	nood->infile = 0; //open ("Makefile", O_RDONLY , 0644);
 	nood->outfile = 1; //open ("solimi", O_CREAT | O_RDWR , 0644);
 }
