@@ -25,11 +25,11 @@ void	echo(char **cmd)
 	i = 1;
 	v = 0;
 
-	// if (!ft_strncmp(cmd[i], "-n", 2))
-	// {
-	// 	i++;
-	// 	v++;
-	// }
+	if (!ft_strncmp(cmd[i], "-n", 2))
+	{
+		i++;
+		v++;
+	}
 	while (cmd[i])   // SEG
 	{
 		// if (cmd[i][0] == '$')

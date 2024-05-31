@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:35:27 by souaouri          #+#    #+#             */
-/*   Updated: 2024/05/31 00:39:40 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/05/31 02:46:08 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	classification_cmd(t_env *list_env, char **nood)
 	pwd = NULL;
 	if (!ft_strncmp("echo", nood[0], 4))
 	{
-		echo(*nood);
+		echo(nood);
 	}
 	else if (!ft_strncmp("pwd", nood[0], 3))
 		ft_find_pwd();
