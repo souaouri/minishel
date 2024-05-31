@@ -17,34 +17,33 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-void	echo(char *cmd)
+void	echo(char **cmd)
 {
-	char	**cmmd;
 	int		i;
 	int		v;
 
 	i = 1;
 	v = 0;
-	cmmd = ft_split(cmd, 32);
 
-	if (!ft_strncmp(cmmd[i], "-n", 2))
+	// if (!ft_strncmp(cmd[i], "-n", 2))
+	// {
+	// 	i++;
+	// 	v++;
+	// }
+	while (cmd[i])   // SEG
 	{
-		i++;
-		v++;
-	}
-	while (cmmd[i])
-	{
-		if (cmmd[i][0] == '$')
-		{
-			char	*var;
-			var = getenv(cmmd[i] + 1);
-			printf ("====%s\n", cmmd[i]);
-			if (var)
-				ft_putstr_fd(var, 1);
-		}
-		else
-			ft_putstr_fd(cmmd[i], 1);
-			if (cmmd[i + 1])
+		// if (cmd[i][0] == '$')
+		// {
+		// 	char	*var;
+		// 	var = getenv(cmd[i] + 1);
+		// 	printf ("====%s\n", cmd[i]);
+		// 	if (var)
+		// 		ft_putstr_fd(var, 1);
+		// }
+		
+		ft_putstr_fd(cmd[i], 1);
+		
+			if (cmd[i + 1])
 				ft_putstr_fd(" ", 1);
 		i++;
 	}

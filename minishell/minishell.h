@@ -46,8 +46,8 @@ void	virtual_stack(t_list **list);
 void	ft_fork(char *nood, t_env *list_env);
 int		ft_strlen_1(char **ptr);
 void	putstr(char *str, int i);
-void	echo(char *cmd);
-void	classification_cmd(t_env *env, char *nood);
+void	echo(char **cmd);
+void	classification_cmd(t_env *env, char **nood);
 void	ft_exec(char **cmd, char **env);
 char	*ft_strdup(char *s1);
 size_t	ft_strlen(char *s);
@@ -69,6 +69,6 @@ void	write_env(t_env *env);
 char	**change_list_to_env(t_env *list_env);
 int		ft_lstsize(t_env *lst);
 int		ft_lstsize_1(t_list *lst);
-void	multiple_cmd(char **env, t_list *list);
+void	multiple_cmd(t_env *env_list, t_list *list);
 
 #endif

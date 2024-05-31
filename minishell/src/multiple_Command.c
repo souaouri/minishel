@@ -80,7 +80,7 @@
 // 	}
 // }
 
-void	multiple_cmd(char **env, t_list *list)
+void	multiple_cmd(t_env *env_list, t_list *list)
 {
 	int	p_fd[2];
 	int hold_fd_in;
@@ -135,9 +135,9 @@ void	multiple_cmd(char **env, t_list *list)
 			close (p_out);
 			if (hold_fd_in > 0)
 				close (hold_fd_in);
-			while (1)
-				;
-			ft_exec(list->content.cmd, env);
+			//ft_exec(list->content.cmd, env);
+			//printf ("kkk\n");
+			classification_cmd(env_list, list->content.cmd);
 		}
 		if (pid < 0)
 		{

@@ -6,12 +6,12 @@
 #    By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/13 12:34:57 by souaouri          #+#    #+#              #
-#    Updated: 2024/05/30 10:59:56 by souaouri         ###   ########.fr        #
+#    Updated: 2024/05/31 00:39:52 by souaouri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC 				=	cc -fsanitize=address -g
-# CC				+=	-Wall -Wextra -Werror
+CC				+=	-Wall -Wextra -Werror
 NAME 			=	minishell
 HEADER 			=	minishell.h
 DIR				=	.object_files
