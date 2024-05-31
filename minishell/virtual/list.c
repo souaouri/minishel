@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:54:18 by souaouri          #+#    #+#             */
-/*   Updated: 2024/05/31 02:57:56 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/05/31 03:06:37 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_initialisation(t_container	*nood)
 {
-	nood->cmd = ft_split("export", ' ');
+	nood->cmd = ft_split("env", ' ');
 	nood->infile = 0; //open ("Makefile", O_RDONLY , 0644);
-	nood->outfile = 1; //open ("solimi", O_CREAT | O_RDWR , 0644);
+	nood->outfile = open ("solimi", O_CREAT | O_RDWR , 0644);
 }
 
 void	ft_initialisation2(t_container	*nood)
@@ -65,22 +65,22 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 void	virtual_stack(t_list **list)
 {
 	t_container	nood;
-	t_container	nood2;
+	// t_container	nood2;
 	t_container	nood3;
 	t_list		*new;
-	t_list		*new2;
+	// t_list		*new2;
 	t_list		*new3;
 
 	ft_initialisation(&nood);
-	ft_initialisation2(&nood2);
+	// ft_initialisation2(&nood2);
 	ft_initialisation3(&nood3);
 
 	new = ft_lstnew(nood);
-	new2 = ft_lstnew(nood2);
+	// new2 = ft_lstnew(nood2);
 	new3 = ft_lstnew(nood3);
 
 	ft_lstadd_back(list, new);
-	ft_lstadd_back(list, new2);
+	// ft_lstadd_back(list, new2);
 	ft_lstadd_back(list, new3);
 	// while (list)
 	// {

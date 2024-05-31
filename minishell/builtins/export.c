@@ -69,6 +69,7 @@ void	ft_sort_env(t_env *env)
 		}
 		i++;
 	}
+	head = NULL;
 	// return (0);
 }
 
