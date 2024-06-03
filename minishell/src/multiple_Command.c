@@ -137,6 +137,8 @@ void	multiple_cmd(t_env *env_list, t_list *list)
 				close (hold_fd_in);
 			//ft_exec(list->content.cmd, env);
 			//printf ("kkk\n");
+			// while (1)
+			// 	;
 			classification_cmd(env_list, list->content.cmd);
 		}
 		if (pid < 0)

@@ -6,7 +6,7 @@
 #    By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/13 12:34:57 by souaouri          #+#    #+#              #
-#    Updated: 2024/05/31 00:39:52 by souaouri         ###   ########.fr        #
+#    Updated: 2024/05/31 21:39:37 by souaouri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,3 +71,7 @@ fclean : clean
 	@echo "\033[31mExecutable file has been removed Successfully! ✅\033[0;m"
 
 re : fclean all
+
+
+
+# export > solimi | cat | cat | cat > solimi
