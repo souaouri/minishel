@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:35:27 by souaouri          #+#    #+#             */
-/*   Updated: 2024/06/03 15:51:21 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/06/03 18:52:57 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	classification_cmd(t_env *list_env, char **nood)
 		get_cd(*nood);
 	else if (!ft_strncmp("export", nood[0], 6))
 	{
-		export(*nood, list_env);
+		export(nood, list_env);
 	}
 	else
 	{

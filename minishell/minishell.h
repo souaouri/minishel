@@ -22,6 +22,9 @@
 typedef struct container
 {
 	char				**cmd;
+	char 				**args; // cat sss > hhh > hhh
+	char				**in_file;
+	char				**out_file;
 	int					infile;
 	int					outfile;
 	struct container	*next;
@@ -41,6 +44,7 @@ typedef struct env
 
 // virtual
 void	virtual_stack(t_list **list);
+void	virtual_stack_1(t_list **list_1);
 
 // travl
 void	ft_fork(char *nood, t_env *list_env);
@@ -63,12 +67,16 @@ char	*ft_find_path(char **env);
 void	ft_find_pwd(void);
 t_env	*get_env(char **env);
 void	get_cd(char *cmd);
-void	export(char *cmd, t_env	*list_env);
+void	export(char **cmd, t_env *list_env);
 void	ft_putstr_fd(char *s, int fd);
 void	write_env(t_env *env);
 char	**change_list_to_env(t_env *list_env);
 int		ft_lstsize(t_env *lst);
 int		ft_lstsize_1(t_list *lst);
 void	multiple_cmd(t_env *env_list, t_list *list);
+t_env	*ft_lstnew_env(char *line);
+void	ft_lstadd_back_env(t_env **lst, t_env *new);
+void	change_list(t_list **list);
+
 
 #endif

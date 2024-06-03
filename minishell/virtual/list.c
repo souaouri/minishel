@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:54:18 by souaouri          #+#    #+#             */
-/*   Updated: 2024/06/03 15:43:06 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/06/03 19:23:04 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 void	ft_initialisation(t_container	*nood)
 {
-	nood->cmd = ft_split("cat", ' ');
-	nood->infile = 0; //open ("Makefile", O_RDONLY , 0644);
-	nood->outfile = 1; //open ("solimi", O_CREAT | O_RDWR | O_TRUNC, 0644);
+	nood->cmd = ft_split("export", ' ');
+	nood->out_file = NULL ; ft_split("souaouri", ' ');
+	nood->in_file = NULL;
+	// nood->infile = 0;//open ("Makefile", O_RDONLY , 0644);
+	// nood->outfile = 1;//open ("solimi", O_CREAT | O_RDWR | O_TRUNC, 0644);
 }
 
 void	ft_initialisation2(t_container	*nood)
 {
 	nood->cmd = ft_split("cat", ' ');
-	nood->infile = 0; //open ("solimi", O_RDONLY , 0644);
-	nood->outfile = 1; //open ("solimi", O_CREAT | O_RDWR | O_TRUNC, 0644);
+	nood->infile = 0;//open ("solimi", O_RDONLY , 0644);
+	nood->outfile = 1;//open ("solimi", O_CREAT | O_RDWR | O_TRUNC, 0644);
 }
 
 void	ft_initialisation3(t_container	*nood)
@@ -83,33 +85,33 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 void	virtual_stack(t_list **list)
 {
 	t_container	nood;
-	t_container	nood2;
-	t_container	nood3;
-	t_container	nood4;
-	t_container	nood5;
+	// t_container	nood2;
+	// t_container	nood3;
+	// t_container	nood4;
+	// t_container	nood5;
 	t_list		*new;
-	t_list		*new2;
-	t_list		*new3;
-	t_list		*new4;
-	t_list		*new5;
+	// t_list		*new2;
+	// t_list		*new3;
+	// t_list		*new4;
+	// t_list		*new5;
 
 	ft_initialisation(&nood);
-	ft_initialisation2(&nood2);
-	ft_initialisation3(&nood3);
-	ft_initialisation4(&nood4);
-	ft_initialisation5(&nood5);
+	// ft_initialisation2(&nood2);
+	// ft_initialisation3(&nood3);
+	// ft_initialisation4(&nood4);
+	// ft_initialisation5(&nood5);
 
 	new = ft_lstnew(nood);
-	new2 = ft_lstnew(nood2);
-	new3 = ft_lstnew(nood3);
-	new4 = ft_lstnew(nood4);
-	new5 = ft_lstnew(nood5);
+	// new2 = ft_lstnew(nood2);
+	// new3 = ft_lstnew(nood3);
+	// new4 = ft_lstnew(nood4);
+	// new5 = ft_lstnew(nood5);
 
 	ft_lstadd_back(list, new);
-	ft_lstadd_back(list, new2);
-	ft_lstadd_back(list, new3);
-	ft_lstadd_back(list, new4);
-	ft_lstadd_back(list, new5);
+	// ft_lstadd_back(list, new2);
+	// ft_lstadd_back(list, new3);
+	// ft_lstadd_back(list, new4);
+	// ft_lstadd_back(list, new5);
 	// while (list)
 	// {
 	// 	printf("---> cmd : %s\n", list->content.cmd);

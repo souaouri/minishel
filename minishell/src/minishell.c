@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:20:06 by souaouri          #+#    #+#             */
-/*   Updated: 2024/05/31 01:52:43 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/06/03 19:13:15 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,14 @@ int	main(int argc, char **argv, char **env)
 	list = NULL;
 	
 	virtual_stack(&list); //in
-	
+	change_list(&list);
+	// while (list)
+	// {
+	// 	printf ("cmd : %s | infile : %d | outfile : %d\n", list->content.cmd[0], list->content.infile, list->content.outfile);
+	// 	list = list->next;
+	// }
+	// exit (0);
+	//exit (0);
 	// create a new linked list for the env
 	// contains (char *value, struct *next;)
 	while (1)
