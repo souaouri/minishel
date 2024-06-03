@@ -6,7 +6,7 @@
 #    By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/13 12:34:57 by souaouri          #+#    #+#              #
-#    Updated: 2024/05/31 21:39:37 by souaouri         ###   ########.fr        #
+#    Updated: 2024/06/03 16:46:23 by souaouri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME 			=	minishell
 HEADER 			=	minishell.h
 DIR				=	.object_files
 
-SRC_FILES		=	minishell.c		multiple_command.c
+SRC_FILES		=	minishell.c		exec.c
 BUILTS_FILES	=	cd.c			echo.c			pwd.c		\
 					env.c			env_utile.c		export.c
 UTILS_FILES		=	utils_1.c 		utils_2.c 		utils_3.c 	\

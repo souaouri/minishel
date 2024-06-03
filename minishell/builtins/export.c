@@ -73,22 +73,38 @@ void	ft_sort_env(t_env *env)
 	// return (0);
 }
 
-void	export(char *cmd, t_env *list_env)
+void	add_variable(t_env *list_env, char *new)
 {
-	char	**cmmd;
+	t_env	*var;
+
+	var = ft_lstnew_env(new);
+	ft_lstadd_back_env(&list_env, var);
+}
+
+void	export(char **cmd, t_env *list_env)
+{
 	// char	**export;
 	t_env	*head;
 
-	cmmd = ft_split(cmd, 32);
-	
-	if (!ft_strncmp(cmmd[0], "export", 6) && !cmmd[1])
-		ft_sort_env(list_env);
-	head = list_env;
-	while (head)
+	if (!ft_strncmp(cmd[0], "export", 6) && !cmd[1])
 	{
-		ft_putstr_fd("declare -x ", 1);
-		ft_putstr_fd(head->content, 1);
-		ft_putstr_fd("\n", 1);
-		head = head->next;
+		ft_sort_env(list_env);
+		head = list_env;
+		while (head)
+		{
+			ft_putstr_fd("declare -x ", 1);
+			ft_putstr_fd(head->content, 1);
+			ft_putstr_fd("\n", 1);
+			head = head->next;
+		}
+	}
+	if (cmd[1])
+	{
+		if (ft_strchr(cmd[1], '='))
+		{
+			add_variable(list_env, cmd[1]);
+		}
+		else 
+			printf ("lllll\n");
 	}
 }

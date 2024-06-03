@@ -1,0 +1,77 @@
+#include "../minishell.h"
+
+void	multiple_cmd(t_env *env_list, t_list *list)
+{
+	int	p_fd[2];
+	int hold_fd_in;
+	int pid;
+	int	p_in ;
+	int	p_out;
+	t_list *tmp;
+
+	hold_fd_in = 0;
+	tmp = list;
+	// while (list)
+	// {
+	// 	printf ("cmd : %s | infile : %d | outfile : %d\n", list->content.cmd[0], list->content.infile, list->content.outfile);
+	// 	list = list->next;
+	// }
+	// exit (0);
+	while (list)
+	{
+		p_in = dup (0);
+		p_out = dup (1);
+		
+
+		if (list->content.infile > 0)
+		{
+			if (hold_fd_in > 0)
+				close (hold_fd_in);
+			dup2(list->content.infile, 0);
+			close (list->content.infile);
+		}
+		else if (hold_fd_in > 0)
+		{
+			dup2(hold_fd_in, 0);
+			close (hold_fd_in);
+		}
+		if (list->next)
+		{
+			if (pipe(p_fd) == -1)
+				exit(1);
+			dup2(p_fd[1], 1);
+			close (p_fd[1]);
+			hold_fd_in = p_fd[0];
+		}
+		if (list->content.outfile > 1)
+		{
+			dup2(list->content.outfile, 1);
+			close (list->content.outfile);
+		}
+		pid = fork();
+		if (pid == 0)
+		{
+			close (p_in);
+			close (p_out);
+			if (hold_fd_in > 0)
+				close (hold_fd_in);
+			//ft_exec(list->content.cmd, env);
+			//printf ("kkk\n");
+			// while (1)
+			// 	;
+			classification_cmd(env_list, list->content.cmd);
+		}
+		if (pid < 0)
+		{
+			ft_putstr_fd("minishell:", 2);
+			ft_putstr_fd("fork: Resource temporarily unavailable", 2);
+		}
+		dup2(p_in, 0);
+		close (p_in);
+		dup2(p_out, 1);
+		close (p_out);
+		list = list->next;
+	}
+	while (wait(NULL) != -1)
+		;
+}

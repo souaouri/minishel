@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:35:27 by souaouri          #+#    #+#             */
-/*   Updated: 2024/06/03 15:51:21 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:55:22 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ void	classification_cmd(t_env *list_env, char **nood)
 	char	**env;
 
 	pwd = NULL;
-	if (!ft_strncmp("echo", nood[0], 4))
+	if (!ft_strncmp("export", nood[0], 6))
+	{
+		export(nood, list_env);
+	}
+	else if (!ft_strncmp("echo", nood[0], 4))
 	{
 		echo(nood);
 	}
@@ -45,14 +49,17 @@ void	classification_cmd(t_env *list_env, char **nood)
 		write_env(list_env);
 	else if (!ft_strncmp("cd", nood[0], 2))
 		get_cd(*nood);
-	else if (!ft_strncmp("export", nood[0], 6))
-	{
-		export(*nood, list_env);
-	}
+	
 	else
 	{
 		env = change_list_to_env(list_env);
 		ft_exec (nood, env);
+	}
+	while(list_env)
+	{
+		ft_putstr_fd(list_env->content, 1);
+		ft_putstr_fd("\n", 1);
+		list_env = list_env->next;
 	}
 	exit(0);
 	//ft_fork(nood, env);
