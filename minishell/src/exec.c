@@ -2,18 +2,19 @@
 
 void	multiple_cmd(t_env *env_list, t_list *list)
 {
-	int	p_fd[2];
-	int hold_fd_in;
-	int pid;
-	int	p_in ;
-	int	p_out;
-	t_list *tmp;
+	int		p_fd[2];
+	int		hold_fd_in;
+	int		pid;
+	int		p_in ;
+	int		p_out;
+	t_list	*tmp;
 
 	hold_fd_in = 0;
 	tmp = list;
 	// while (list)
 	// {
-	// 	printf ("cmd : %s | infile : %d | outfile : %d\n", list->content.cmd[0], list->content.infile, list->content.outfile);
+	// 	change_list(list);
+	// 	printf ("cmd : %s %s | infile : %d | outfile : %d\n", list->content.cmmd[0], list->content.cmmd[1], list->content.infile, list->content.outfile);
 	// 	list = list->next;
 	// }
 	// exit (0);
@@ -22,7 +23,7 @@ void	multiple_cmd(t_env *env_list, t_list *list)
 		p_in = dup (0);
 		p_out = dup (1);
 		
-
+		change_list(list);
 		if (list->content.infile > 0)
 		{
 			if (hold_fd_in > 0)
@@ -59,7 +60,7 @@ void	multiple_cmd(t_env *env_list, t_list *list)
 			//printf ("kkk\n");
 			// while (1)
 			// 	;
-			classification_cmd(env_list, list->content.cmd);
+			classification_cmd(env_list, list->content.cmmd);
 		}
 		if (pid < 0)
 		{

@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:35:27 by souaouri          #+#    #+#             */
-/*   Updated: 2024/06/03 18:52:57 by souaouri         ###   ########.fr       */
+/*   Updated: 2024/06/03 19:36:28 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ void	classification_cmd(t_env *list_env, char **nood)
 		env = change_list_to_env(list_env);
 		ft_exec (nood, env);
 	}
-	exit(0);
+	exit(0);   // cmd not found
 	//ft_fork(nood, env);
 }

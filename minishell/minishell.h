@@ -21,13 +21,13 @@
 
 typedef struct container
 {
-	char				**cmd;
+	char				*cmd;
+	char				**cmmd;
 	char 				**args; // cat sss > hhh > hhh
 	char				**in_file;
 	char				**out_file;
 	int					infile;
 	int					outfile;
-	struct container	*next;
 }						t_container;
 
 typedef struct list
@@ -76,7 +76,7 @@ int		ft_lstsize_1(t_list *lst);
 void	multiple_cmd(t_env *env_list, t_list *list);
 t_env	*ft_lstnew_env(char *line);
 void	ft_lstadd_back_env(t_env **lst, t_env *new);
-void	change_list(t_list **list);
-
+void	change_list(t_list *list);
+char	**join_cmd_arg(char *cmd, char **arg);
 
 #endif

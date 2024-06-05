@@ -6,7 +6,7 @@
 #    By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/13 12:34:57 by souaouri          #+#    #+#              #
-#    Updated: 2024/06/03 18:28:48 by souaouri         ###   ########.fr        #
+#    Updated: 2024/06/05 02:32:13 by souaouri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ NAME 			=	minishell
 HEADER 			=	minishell.h
 DIR				=	.object_files
 
-SRC_FILES		=	minishell.c		exec.c		open_file.c
+SRC_FILES		=	minishell.c		exec.c
 BUILTS_FILES	=	cd.c			echo.c			pwd.c		\
 					env.c			env_utile.c		export.c
 UTILS_FILES		=	utils_1.c 		utils_2.c 		utils_3.c 	\
-					utils_4.c 		utils_5.c 		utils_6.c
+					utils_4.c 		utils_5.c 		utils_6.c	\
+					utils_7.c		utils_8.c
 VUR_FILES		=	list.c
 
 SRC_SRC			=	$(addprefix src/,$(SRC_FILES))
@@ -75,3 +76,4 @@ re : fclean all
 
 
 # export > solimi | cat | cat | cat > solimi
+# message error in parc and exec stop cmd to run becose infile=-1;
